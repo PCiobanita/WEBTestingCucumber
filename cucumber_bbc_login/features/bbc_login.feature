@@ -42,7 +42,7 @@ Feature: BBC Login
     When I try to login
     Then I recieve error beeing asking me to instert something other than numbers
 
-  Scenario: Inputing a passowrd that only have numbers
+  Scenario: Inputing a passowrd that is only to long
     Given I access the bbc login page
     And I input incorrect email
     And I input passowrd with to many characters

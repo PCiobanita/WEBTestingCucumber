@@ -44,13 +44,13 @@ end
 
 
 #inputing wrong password
-# Given("I input correct email") do
-#   @bbc_site.bbc_signin.fillin_username('paul.ciobanita@gmail.com')
-# end
+Given("I input correct email") do
+  @bbc_site.bbc_signin.fillin_username('paul.ciobanita@gmail.com')
+end
 
-# Then("I recieve error beeing the wrong password for email") do
-#   expect(@bbc_site.bbc_signin.get_password_error_messege).to eq @bbc_site.bbc_signin.error_password | @bbc_site.bbc_signin.error_password_no_numbers
-# end
+Then("I recieve error beeing the wrong password for email") do
+  expect(@bbc_site.bbc_signin.get_password_error_messege).to eq(@bbc_site.bbc_signin.error_wrong_password) | eq(@bbc_site.bbc_signin.error_wrong_password_2)
+end
 
 # inputng password with only letters
 Given("I input letters only password") do
@@ -69,4 +69,24 @@ end
 
 Then("I recieve error beeing asking me to instert something other than numbers") do
   expect(@bbc_site.bbc_signin.get_password_error_messege).to eq @bbc_site.bbc_signin.error_password_no_letters
+end
+
+# inputing a password that is to long
+Given("I input passowrd with to many characters") do
+  @bbc_site.bbc_signin.fillin_password('askdhakjshdkjahsdkjahsk21321kjashdkjahskjdh213h21kjhakhdkjasdhkjashd21321')
+end
+
+Then("I recieve error beeing telling me password to long") do
+  expect(@bbc_site.bbc_signin.get_password_error_messege).to eq @bbc_site.bbc_signin.error_password_to_long
+end
+
+
+
+# input username that is to short
+Given("I input short username") do
+  @bbc_site.bbc_signin.fillin_username('q')
+end
+
+Then("I recieve error with username beeing to short") do
+  expect(@bbc_site.bbc_signin.get_error_messege).to eq @bbc_site.bbc_signin.error_username_to_short
 end

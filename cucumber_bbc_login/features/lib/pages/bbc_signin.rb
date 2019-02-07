@@ -19,7 +19,7 @@ class BbcSignin
       @error_password_no_numbers = "Sorry, that password isn't valid. Please include something that isn't a letter."
       @error_password_no_letters = "Sorry, that password isn't valid. Please include a letter."
       @error_password_to_long = "Sorry, that password is too long. It can't be more than 50 characters."
-      @error_username_to_short = "Sorry, that password is too long. It can't be more than 50 characters."
+      @error_username_to_short = "Sorry, that username's too short. It needs to be at least two characters."
   end
   
 
