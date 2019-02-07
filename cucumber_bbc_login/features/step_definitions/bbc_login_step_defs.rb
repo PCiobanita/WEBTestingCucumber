@@ -1,3 +1,4 @@
+#input an email that is not registered
 Given("I access the bbc login page") do
   @bbc_site = BbcSite.new
   @bbc_site.bbc_homepage.visit_homepage
@@ -22,7 +23,7 @@ end
 
 
 
-# inputing password to short
+# input login with password to short
 
 Given("I input a password that is to short") do
   @bbc_site.bbc_signin.fillin_password('b')
@@ -33,7 +34,7 @@ Then("I recieve error for password beeing to short") do
 end
 
 
-# inputing invalid email
+# input login with invalid email
 Given("I input incorrect email") do
   @bbc_site.bbc_signin.fillin_username('apple1231@btint')
 end
@@ -43,7 +44,7 @@ Then("I recieve error not beeing valid email") do
 end
 
 
-#inputing wrong password
+#input login with wrong password
 Given("I input correct email") do
   @bbc_site.bbc_signin.fillin_username('paul.ciobanita@gmail.com')
 end
@@ -52,7 +53,7 @@ Then("I recieve error beeing the wrong password for email") do
   expect(@bbc_site.bbc_signin.get_password_error_messege).to eq(@bbc_site.bbc_signin.error_wrong_password) | eq(@bbc_site.bbc_signin.error_wrong_password_2)
 end
 
-# inputng password with only letters
+# input login with password of only letters
 Given("I input letters only password") do
   @bbc_site.bbc_signin.fillin_password('helloqwww')
 end
@@ -62,7 +63,7 @@ Then("I recieve error beeing asking me to instert something other that letters")
 end
 
 
-#inputing numbers only passord
+# input login with numbers only passord
 Given("I input numbers only password") do
   @bbc_site.bbc_signin.fillin_password('12345225422')
 end
@@ -71,7 +72,7 @@ Then("I recieve error beeing asking me to instert something other than numbers")
   expect(@bbc_site.bbc_signin.get_password_error_messege).to eq @bbc_site.bbc_signin.error_password_no_letters
 end
 
-# inputing a password that is to long
+# input login with a password that is to long
 Given("I input passowrd with to many characters") do
   @bbc_site.bbc_signin.fillin_password('askdhakjshdkjahsdkjahsk21321kjashdkjahskjdh213h21kjhakhdkjasdhkjashd21321')
 end
@@ -79,7 +80,6 @@ end
 Then("I recieve error beeing telling me password to long") do
   expect(@bbc_site.bbc_signin.get_password_error_messege).to eq @bbc_site.bbc_signin.error_password_to_long
 end
-
 
 
 # input username that is to short
