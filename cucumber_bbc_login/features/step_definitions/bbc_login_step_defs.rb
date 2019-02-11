@@ -24,7 +24,6 @@ end
 
 
 # input login with password to short
-
 Given("I input a password that is to short") do
   @bbc_site.bbc_signin.fillin_password('b')
 end
@@ -42,7 +41,6 @@ end
 Then("I recieve error not beeing valid email") do
   expect(@bbc_site.bbc_signin.get_error_messege).to eq @bbc_site.bbc_signin.error_invalid_email
 end
-
 
 #input login with wrong password
 Given("I input correct email") do
@@ -62,7 +60,6 @@ Then("I recieve error beeing asking me to instert something other that letters")
   expect(@bbc_site.bbc_signin.get_password_error_messege).to eq @bbc_site.bbc_signin.error_password_no_numbers
 end
 
-
 # input login with numbers only passord
 Given("I input numbers only password") do
   @bbc_site.bbc_signin.fillin_password('12345225422')
@@ -80,7 +77,6 @@ end
 Then("I recieve error beeing telling me password to long") do
   expect(@bbc_site.bbc_signin.get_password_error_messege).to eq @bbc_site.bbc_signin.error_password_to_long
 end
-
 
 # input username that is to short
 Given("I input short username") do
